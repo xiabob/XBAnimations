@@ -179,4 +179,76 @@
     return animation;
 }
 
++ (CAAnimation *)jelleyJumpDisplayAnimation {
+    CGFloat duration = 1 / 3.0;
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    group.removedOnCompletion = NO;
+    group.fillMode = kCAFillModeForwards;
+    
+    CABasicAnimation *alphaAni = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    alphaAni.removedOnCompletion = NO;
+    alphaAni.fillMode = kCAFillModeForwards;
+    alphaAni.duration = duration;
+    alphaAni.fromValue = @(0.0);
+    alphaAni.toValue = @(1.0);
+    alphaAni.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    
+    CABasicAnimation *scaleAni = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    scaleAni.removedOnCompletion = NO;
+    scaleAni.fillMode = kCAFillModeForwards;
+    scaleAni.duration = duration;
+    scaleAni.fromValue = @(0.1);
+    scaleAni.toValue = @(1.0);
+    scaleAni.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    
+    CABasicAnimation *upAnimation = [CABasicAnimation animationWithKeyPath:@"position.y"];
+    upAnimation.removedOnCompletion = NO;
+    upAnimation.fillMode = kCAFillModeForwards;
+    upAnimation.duration = duration;
+    upAnimation.fromValue = @(250);
+    upAnimation.toValue = @(-80);
+    upAnimation.additive = YES;
+    upAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+    
+    CAKeyframeAnimation *downAni = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
+    downAni.removedOnCompletion = NO;
+    downAni.fillMode = kCAFillModeForwards;
+    downAni.beginTime = duration;
+    downAni.duration = 0.1;
+    downAni.values = @[@(0),@(15),@(80)];
+    downAni.keyTimes = @[@(0.0),@(0.7),@(1.0)];
+    downAni.additive = YES;
+    downAni.timingFunctions = @[[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn],[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];
+    
+    duration += 0.1;
+    
+    CAKeyframeAnimation *shakeAni = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
+    shakeAni.removedOnCompletion = NO;
+    shakeAni.fillMode = kCAFillModeForwards;
+    shakeAni.beginTime = duration;
+    shakeAni.duration = 0.15;
+    shakeAni.values = @[@(0), @(-15), @(-15), @(0)];
+    shakeAni.keyTimes = @[@(0.0), @(2/7.0), @(5/7.0), @(1.0)];
+    shakeAni.additive = YES;
+    
+    CATransform3D scale1 = CATransform3DMakeScale(1.06, 0.95, 1.0);
+    CATransform3D scale2 = CATransform3DMakeScale(0.96, 1.05, 1.0);
+    
+    CAKeyframeAnimation *jellyAni = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
+    jellyAni.removedOnCompletion = NO;
+    jellyAni.fillMode = kCAFillModeForwards;
+    jellyAni.beginTime = duration;
+    jellyAni.duration = 0.15;
+    jellyAni.values = @[[NSValue valueWithCATransform3D:scale1], [NSValue valueWithCATransform3D:scale2], [NSValue valueWithCATransform3D:scale2], [NSValue valueWithCATransform3D:CATransform3DIdentity]];
+    jellyAni.keyTimes = @[@(0.0),@(2/7.0),@(5/7.0),@(1.0)];
+    
+    duration += 0.15;
+    group.animations = @[alphaAni,scaleAni,upAnimation,downAni,shakeAni,jellyAni];
+    group.duration = duration;
+    
+    return group;
+}
+
+
 @end

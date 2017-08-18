@@ -20,7 +20,6 @@
  */
 + (CAAnimation *)jellyShake:(CGRect)bounds;
 
-
 /**
  jelly jump animation
 
@@ -29,12 +28,19 @@
  */
 + (CAAnimation *)jellyJump:(CGRect)bounds;
 
-
 /**
  shake from left side and right side
 
  @return animation object
  */
 + (CAAnimation *)sideShake;
+
+
+/**
+ jelly jump to display at screen
+
+ @return animation object
+ */
++ (CAAnimation *)jelleyJumpDisplayAnimation;
 
 @end
