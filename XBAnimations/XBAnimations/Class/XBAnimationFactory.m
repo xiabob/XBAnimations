@@ -168,12 +168,12 @@
     return jellyJump;
 }
 
-+ (CAAnimation *)sideShake {
++ (CAAnimation *)sideShake:(CGFloat)maxOffset {
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
     animation.keyPath = @"position.x";
-    animation.values = @[ @0, @10, @-10, @10, @0 ];
-    animation.keyTimes = @[ @0, @(1 / 6.0), @(3 / 6.0), @(5 / 6.0), @1 ];
-    animation.duration = 0.4;
+    animation.values = @[@0, @(maxOffset), @(-maxOffset), @(maxOffset), @0];
+    animation.keyTimes = @[@0, @(1 / 6.0), @(3 / 6.0), @(5 / 6.0), @1];
+    animation.duration = 4;
     animation.additive = YES;
     
     return animation;
@@ -250,5 +250,54 @@
     return group;
 }
 
++ (CAAnimation *)energyMovingAnimationFromPositon:(CGPoint)fromPosition toPosition:(CGPoint)toPosition {
+    CAKeyframeAnimation *scale1 = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
+    scale1.values = @[@1, @1.4, @1];
+    scale1.keyTimes = @[@(0), @(1/3.0), @(2/3.0), @(1.0)];
+    scale1.duration = 0.45;
+    scale1.removedOnCompletion = NO;
+    scale1.fillMode = kCAFillModeForwards;
+    
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    [path moveToPoint:fromPosition];
+    //http://cubic-bezier.com/#.15,.5,.5,.99
+    CGPoint control_1 = [self controlPointFrom:fromPosition to:toPosition interpolation:CGPointMake(0.60, 0.15)];
+    CGPoint control_2 = [self controlPointFrom:fromPosition to:toPosition interpolation:CGPointMake(1.00, 0.50)];
+    [path addCurveToPoint:toPosition controlPoint1:control_1 controlPoint2:control_2];
+    CAKeyframeAnimation *orbit = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+    orbit.beginTime = scale1.duration;
+    orbit.path = path.CGPath;
+    orbit.duration = 0.75;
+    orbit.removedOnCompletion = NO;
+    orbit.fillMode = kCAFillModeForwards;
+    orbit.calculationMode = kCAAnimationPaced;
+    orbit.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    
+    CAKeyframeAnimation *scale2 = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
+    scale2.beginTime = orbit.beginTime + orbit.duration;
+    scale2.values = @[@1, @1.4, @1];
+    scale2.keyTimes = @[@(0), @(1/3.0), @(2/3.0), @(1.0)];
+    scale2.duration = 0.45;
+    scale2.removedOnCompletion = NO;
+    scale2.fillMode = kCAFillModeForwards;
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    group.duration = scale2.beginTime + scale2.duration;
+    group.repeatCount = 1;
+    group.animations = @[scale1, orbit, scale2];
+    group.removedOnCompletion = NO;
+    group.fillMode = kCAFillModeForwards;
+    
+    return group;
+}
+
+
+#pragma mark - Private
+
++ (CGPoint)controlPointFrom:(CGPoint)from to:(CGPoint)to interpolation:(CGPoint)interpolation {
+    CGFloat x = from.x + (to.x - from.x) * interpolation.x;
+    CGFloat y = from.y + (to.y - from.y) * interpolation.y;
+    return CGPointMake(x, y);
+}
 
 @end

@@ -28,12 +28,15 @@
  */
 + (CAAnimation *)jellyJump:(CGRect)bounds;
 
+
+
 /**
  shake from left side and right side
 
+ @param maxOffset max side offset
  @return animation object
  */
-+ (CAAnimation *)sideShake;
++ (CAAnimation *)sideShake:(CGFloat)maxOffset;
 
 
 /**
@@ -42,5 +45,7 @@
  @return animation object
  */
 + (CAAnimation *)jelleyJumpDisplayAnimation;
+
++ (CAAnimation *)energyMovingAnimationFromPositon:(CGPoint)fromPosition toPosition:(CGPoint)toPosition;
 
 @end
