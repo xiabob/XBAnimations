@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		744614501FD4F37B0059E243 /* UIView+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 7446144F1FD4F37B0059E243 /* UIView+Shake.m */; };
 		745205211F30667A0099F31C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 745205201F30667A0099F31C /* main.m */; };
 		745205241F30667A0099F31C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 745205231F30667A0099F31C /* AppDelegate.m */; };
 		745205271F30667A0099F31C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 745205261F30667A0099F31C /* ViewController.m */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7446144E1FD4F37B0059E243 /* UIView+Shake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Shake.h"; sourceTree = "<group>"; };
+		7446144F1FD4F37B0059E243 /* UIView+Shake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Shake.m"; sourceTree = "<group>"; };
 		7452051C1F30667A0099F31C /* XBAnimations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XBAnimations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		745205201F30667A0099F31C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		745205221F30667A0099F31C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -86,6 +89,8 @@
 		745205361F3066AF0099F31C /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				7446144E1FD4F37B0059E243 /* UIView+Shake.h */,
+				7446144F1FD4F37B0059E243 /* UIView+Shake.m */,
 				747CBD841F340F3600779E50 /* XBAnimationFactory.h */,
 				747CBD851F340F3600779E50 /* XBAnimationFactory.m */,
 			);
@@ -167,6 +172,7 @@
 				745205271F30667A0099F31C /* ViewController.m in Sources */,
 				747CBD861F340F3600779E50 /* XBAnimationFactory.m in Sources */,
 				745205241F30667A0099F31C /* AppDelegate.m in Sources */,
+				744614501FD4F37B0059E243 /* UIView+Shake.m in Sources */,
 				745205211F30667A0099F31C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
