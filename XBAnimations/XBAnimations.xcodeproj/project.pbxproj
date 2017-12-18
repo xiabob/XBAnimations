@@ -7,19 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		744614501FD4F37B0059E243 /* UIView+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 7446144F1FD4F37B0059E243 /* UIView+Shake.m */; };
 		745205211F30667A0099F31C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 745205201F30667A0099F31C /* main.m */; };
 		745205241F30667A0099F31C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 745205231F30667A0099F31C /* AppDelegate.m */; };
 		745205271F30667A0099F31C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 745205261F30667A0099F31C /* ViewController.m */; };
 		7452052A1F30667A0099F31C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 745205281F30667A0099F31C /* Main.storyboard */; };
 		7452052C1F30667A0099F31C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7452052B1F30667A0099F31C /* Assets.xcassets */; };
 		7452052F1F30667A0099F31C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7452052D1F30667A0099F31C /* LaunchScreen.storyboard */; };
-		747CBD861F340F3600779E50 /* XBAnimationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 747CBD851F340F3600779E50 /* XBAnimationFactory.m */; };
+		7480A2A91FE79530002A360B /* UIView+Shake.m in Sources */ = {isa = PBXBuildFile; fileRef = 7480A2A61FE79530002A360B /* UIView+Shake.m */; };
+		7480A2AA1FE79530002A360B /* XBAnimationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 7480A2A81FE79530002A360B /* XBAnimationFactory.m */; };
+		7480A2AD1FE7954A002A360B /* XBAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7480A2AC1FE7954A002A360B /* XBAnimation.m */; };
+		7480A2B31FE7ADF1002A360B /* UIView+XBAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7480A2B21FE7ADF1002A360B /* UIView+XBAnimation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7446144E1FD4F37B0059E243 /* UIView+Shake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Shake.h"; sourceTree = "<group>"; };
-		7446144F1FD4F37B0059E243 /* UIView+Shake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Shake.m"; sourceTree = "<group>"; };
 		7452051C1F30667A0099F31C /* XBAnimations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XBAnimations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		745205201F30667A0099F31C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		745205221F30667A0099F31C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -30,8 +30,14 @@
 		7452052B1F30667A0099F31C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7452052E1F30667A0099F31C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		745205301F30667A0099F31C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		747CBD841F340F3600779E50 /* XBAnimationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBAnimationFactory.h; sourceTree = "<group>"; };
-		747CBD851F340F3600779E50 /* XBAnimationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBAnimationFactory.m; sourceTree = "<group>"; };
+		7480A2A51FE79530002A360B /* UIView+Shake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Shake.h"; sourceTree = "<group>"; };
+		7480A2A61FE79530002A360B /* UIView+Shake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Shake.m"; sourceTree = "<group>"; };
+		7480A2A71FE79530002A360B /* XBAnimationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XBAnimationFactory.h; sourceTree = "<group>"; };
+		7480A2A81FE79530002A360B /* XBAnimationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XBAnimationFactory.m; sourceTree = "<group>"; };
+		7480A2AB1FE7954A002A360B /* XBAnimation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XBAnimation.h; sourceTree = "<group>"; };
+		7480A2AC1FE7954A002A360B /* XBAnimation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XBAnimation.m; sourceTree = "<group>"; };
+		7480A2B11FE7ADF1002A360B /* UIView+XBAnimation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+XBAnimation.h"; sourceTree = "<group>"; };
+		7480A2B21FE7ADF1002A360B /* UIView+XBAnimation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+XBAnimation.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,12 +95,24 @@
 		745205361F3066AF0099F31C /* Class */ = {
 			isa = PBXGroup;
 			children = (
-				7446144E1FD4F37B0059E243 /* UIView+Shake.h */,
-				7446144F1FD4F37B0059E243 /* UIView+Shake.m */,
-				747CBD841F340F3600779E50 /* XBAnimationFactory.h */,
-				747CBD851F340F3600779E50 /* XBAnimationFactory.m */,
+				7480A2A41FE79530002A360B /* Others */,
+				7480A2AB1FE7954A002A360B /* XBAnimation.h */,
+				7480A2AC1FE7954A002A360B /* XBAnimation.m */,
+				7480A2B11FE7ADF1002A360B /* UIView+XBAnimation.h */,
+				7480A2B21FE7ADF1002A360B /* UIView+XBAnimation.m */,
 			);
 			path = Class;
+			sourceTree = "<group>";
+		};
+		7480A2A41FE79530002A360B /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				7480A2A51FE79530002A360B /* UIView+Shake.h */,
+				7480A2A61FE79530002A360B /* UIView+Shake.m */,
+				7480A2A71FE79530002A360B /* XBAnimationFactory.h */,
+				7480A2A81FE79530002A360B /* XBAnimationFactory.m */,
+			);
+			path = Others;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,10 +187,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7480A2AD1FE7954A002A360B /* XBAnimation.m in Sources */,
+				7480A2B31FE7ADF1002A360B /* UIView+XBAnimation.m in Sources */,
 				745205271F30667A0099F31C /* ViewController.m in Sources */,
-				747CBD861F340F3600779E50 /* XBAnimationFactory.m in Sources */,
+				7480A2A91FE79530002A360B /* UIView+Shake.m in Sources */,
 				745205241F30667A0099F31C /* AppDelegate.m in Sources */,
-				744614501FD4F37B0059E243 /* UIView+Shake.m in Sources */,
+				7480A2AA1FE79530002A360B /* XBAnimationFactory.m in Sources */,
 				745205211F30667A0099F31C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
