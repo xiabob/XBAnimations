@@ -136,12 +136,9 @@
 }
 
 + (CAAnimation *)scaleXTo:(CGFloat)xScale y:(CGFloat)yScale duration:(NSTimeInterval)duration {
-    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform"];
-    animation.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(xScale, yScale, 1)];
-    animation.duration = duration;
-    animation.repeatCount = 1;
-    
-    return animation;
+    CAAnimation *animation_1 = [self scaleXTo:xScale duration:duration];
+    CAAnimation *animation_2 = [self scaleYTo:yScale duration:duration];
+    return [self group:@[animation_1, animation_2]];
 }
 
 + (CAAnimation *)scaleXTo:(CGFloat)scale duration:(NSTimeInterval)duration {
@@ -265,6 +262,9 @@
     [animations enumerateObjectsUsingBlock:^(CAAnimation * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         obj.beginTime = beginTime;
         beginTime += obj.duration;
+        
+        obj.fillMode = kCAFillModeForwards;
+        obj.removedOnCompletion = NO;
     }];
     group.duration = animations.lastObject.beginTime + animations.lastObject.duration;
     group.animations = animations;
@@ -282,6 +282,9 @@
         if (duration < totalTime) {
             duration = totalTime;
         }
+        
+        obj.fillMode = kCAFillModeForwards;
+        obj.removedOnCompletion = NO;
     }];
     group.duration = duration;
     group.animations = animations;
@@ -300,5 +303,17 @@
     return [animation copy];
 }
 
++ (CAAnimation *)waitForDuration:(NSTimeInterval)duration {
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"zPosition"];
+    animation.byValue = @(0);
+    animation.duration = duration;
+    
+    return animation;
+}
+
++ (CAAnimation *)waitForDuration:(NSTimeInterval)duration withRange:(NSTimeInterval)durationRange {
+    NSTimeInterval newDuration = (duration - durationRange / 2) + (arc4random_uniform(100) + 1) / 100.0 * durationRange;
+    return [self waitForDuration:newDuration];
+}
 
 @end

@@ -76,6 +76,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (CAAnimation *)repeatAction:(CAAnimation *)animation count:(NSUInteger)count;
 + (CAAnimation *)repeatActionForever:(CAAnimation *)animation;
 
++ (CAAnimation *)waitForDuration:(NSTimeInterval)duration;
++ (CAAnimation *)waitForDuration:(NSTimeInterval)duration withRange:(NSTimeInterval)durationRange;
 
 @end
 
