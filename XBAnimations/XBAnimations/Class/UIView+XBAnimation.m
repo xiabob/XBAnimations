@@ -54,7 +54,7 @@
 #pragma mark - Utils
 
 - (BOOL)hasAnimations {
-    return self.layer.animationKeys;
+    return self.layer.animationKeys.count > 0;
 }
 
 - (nullable CAAnimation *)animationForKey:(NSString *)key {
